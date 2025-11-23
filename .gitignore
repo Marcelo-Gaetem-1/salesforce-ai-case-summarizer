@@ -1,0 +1,8 @@
+# Salesforce / SFDX
+.sfdx/
+.vscode/
+*.log
+*.tmp
+*.zip
+*.backup
+.DS_Store
