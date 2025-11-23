@@ -1,0 +1,164 @@
+/* Badges de tono */
+.tone-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
+    border: 1px solid #dddbda;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.tone-badge::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+/* Positive */
+.tone-positive {
+    background-color: #e8f5e9;
+    color: #2e844a;
+}
+.tone-positive::before {
+    background-color: #2e844a;
+}
+
+/* Negative */
+.tone-negative {
+    background-color: #ffebee;
+    color: #ba0517;
+}
+.tone-negative::before {
+    background-color: #ba0517;
+}
+
+/* Neutral */
+.tone-neutral {
+    background-color: #e3f2fd;
+    color: #0176d3;
+}
+.tone-neutral::before {
+    background-color: #0176d3;
+}
+
+/* Unknown / sin tono */
+.tone-unknown {
+    background-color: #f3f2f2;
+    color: #3e3e3c;
+}
+.tone-unknown::before {
+    background-color: #3e3e3c;
+}
+
+/* Fila de emoji + badge */
+.tone-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tone-emoji {
+    font-size: 1.2rem;
+}
+
+/* Barra de sentimiento */
+.sentiment-bar-container {
+    margin-top: 0.5rem;
+}
+
+.sentiment-bar-track {
+    width: 100%;
+    height: 6px;
+    border-radius: 999px;
+    background-color: #f3f2f2;
+    overflow: hidden;
+}
+
+.sentiment-bar-fill {
+    height: 100%;
+    border-radius: 999px;
+    background-color: #0176d3;
+    transition: width 0.25s ease-in-out;
+}
+
+.sentiment-bar-label {
+    margin-top: 0.25rem;
+}
+
+/* Separación de secciones */
+.section-block {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.section-block:last-child {
+    border-bottom: none;
+}
+
+/* Centrar título del card */
+.center-title .slds-card__header-title {
+    width: 100%;
+    text-align: center;
+}
+
+/* Centrar footer */
+.centered-footer {
+    text-align: center;
+    display: block;
+    margin-top: 1rem;
+}
+
+/* Skeleton loading */
+.skeleton-line {
+    height: 10px;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(90deg, #f3f2f2 0%, #e5e5e5 50%, #f3f2f2 100%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.2s ease-in-out infinite;
+}
+
+.skeleton-title {
+    width: 40%;
+    height: 12px;
+    margin-bottom: 0.75rem;
+}
+
+.skeleton-line.short {
+    width: 60%;
+}
+
+.skeleton-separator {
+    height: 1px;
+    background-color: #e5e5e5;
+    margin: 0.75rem 0;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: 200px 0;
+    }
+}
+
+/* Transición suave al cargar datos */
+.fade-in {
+    animation: fade-in 0.25s ease-in;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(2px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
