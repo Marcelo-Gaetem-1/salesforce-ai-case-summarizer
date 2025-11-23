@@ -1,0 +1,83 @@
+<template>
+    <lightning-card title="AI Case Insights" icon-name="utility:bot" class="center-title">
+
+        <!-- Botón Refresh -->
+        <div slot="actions">
+            <lightning-button
+                variant="neutral"
+                label="Refresh"
+                onclick={handleRefresh}
+                disabled={isLoading}
+            ></lightning-button>
+        </div>
+
+        <!-- Loading con skeleton -->
+        <template if:true={isLoading}>
+            <div class="slds-p-around_medium">
+                <div class="skeleton-line skeleton-title"></div>
+                <div class="skeleton-line"></div>
+                <div class="skeleton-line short"></div>
+                <div class="skeleton-separator"></div>
+                <div class="skeleton-line skeleton-title"></div>
+                <div class="skeleton-line"></div>
+                <div class="skeleton-line short"></div>
+            </div>
+        </template>
+
+        <!-- Error -->
+        <template if:true={error}>
+            <div class="slds-p-around_medium slds-text-color_error">
+                {error}
+            </div>
+        </template>
+
+        <!-- Datos -->
+        <template if:true={hasData}>
+            <div class="slds-p-around_medium fade-in">
+
+                <div class="section-block">
+                    <p class="slds-text-title_caps slds-m-bottom_x-small">Summary</p>
+                    <p class="slds-m-bottom_medium">{summary}</p>
+                </div>
+
+                <div class="section-block">
+                    <p class="slds-text-title_caps slds-m-bottom_x-small">Tone</p>
+
+                    <div class="tone-row">
+                        <span class="tone-emoji">{toneEmoji}</span>
+                        <span class={toneClass}>{toneLabel}</span>
+                    </div>
+
+                    <div class="sentiment-bar-container slds-m-top_small">
+                        <div class="sentiment-bar-track">
+                            <div class="sentiment-bar-fill" style={sentimentBarStyle}></div>
+                        </div>
+                        <p class="sentiment-bar-label slds-text-body_small slds-text-color_weak">
+                            Sentiment score: {sentimentScore} / 100
+                        </p>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <p class="slds-text-title_caps slds-m-bottom_x-small">Recommendation</p>
+                    <p>{recommendation}</p>
+                </div>
+
+                <div class="section-block">
+                    <p class="slds-text-body_small slds-text-color_weak centered-footer">
+                        Last analyzed: {lastAnalyzedFormatted} • Source: {source}
+                    </p>
+                </div>
+
+            </div>
+        </template>
+
+        <!-- Sin datos -->
+        <template if:false={hasData}>
+            <div class="slds-p-around_medium slds-text-color_weak">
+                No AI analysis available for this case yet.
+            </div>
+        </template>
+
+    </lightning-card>
+</template>
